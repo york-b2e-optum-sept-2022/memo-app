@@ -1,17 +1,1 @@
-<h1> {{getName()}} </h1>
-<h2> {{num}} </h2>
-
-<div [style.background-color]="color"> foo </div>
-
-<input [type]="inputType" (change)="onChange($event)">
-
-<button (click)="onClick()">Click Me</button>
-
-<div *ngIf="num > 200">
-  num is large
-</div>
-
-<div *ngFor="let account of arrAccount">
-  <h3>{{account.name}}</h3>
-  <h4>{{account.email}}</h4>
-</div>
+<app-counter></app-counter>
