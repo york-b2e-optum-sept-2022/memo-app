@@ -1,2 +1,4 @@
-<app-counter></app-counter>
-<app-calculator></app-calculator>
+<app-memo-input (onSave)="createMemo($event)"></app-memo-input>
+
+<app-memo-list [list]="memoList"></app-memo-list>
+
