@@ -1,4 +1,7 @@
 <app-memo-input (onSave)="createMemo($event)"></app-memo-input>
+<app-memo-list
+  [list]="memoList"
+  (onDelete)="deleteMemo($event)">
+</app-memo-list>
 
-<app-memo-list [list]="memoList"></app-memo-list>
 

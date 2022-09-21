@@ -3,6 +3,7 @@
   <app-memo
     *ngFor="let memoData of list"
     [memo]="memoData"
+    (onDelete)="onMemoDelete($event)"
   ></app-memo>
 
 </div>

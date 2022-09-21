@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-memo-list',
@@ -8,11 +8,16 @@ import {Component, Input, OnInit} from '@angular/core';
 export class MemoListComponent implements OnInit {
 
   @Input() list!: any[];
+  @Output() onDelete = new EventEmitter<any>();
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  onMemoDelete(memo: any) {
+    this.onDelete.emit(memo);
   }
 
 }

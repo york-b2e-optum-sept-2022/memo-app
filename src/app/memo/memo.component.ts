@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-memo',
@@ -8,10 +8,27 @@ import {Component, Input, OnInit} from '@angular/core';
 export class MemoComponent implements OnInit {
 
   @Input() memo: any;
+  @Output() onDelete = new EventEmitter<any>;
+  isUpdating: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onDeleteClick() {
+    this.onDelete.emit(this.memo);
+    this.onDelete.emit(this.memo);
+  }
+
+  onUpdateClick() {
+    this.isUpdating = true;
+    console.log('update')
+  }
+
+  onSaveClick() {
+    this.isUpdating = false;
+    console.log('save changes')
   }
 
 }

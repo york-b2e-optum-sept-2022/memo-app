@@ -1,14 +1,24 @@
+<script src="memo.component.ts"></script>
 <div class="memo">
 
   <div class="memo-nav">
+
     <div>{{memo.date | date}}</div>
 
     <label>
       Finished
-      <input type="checkbox">
+      <input [(ngModel)]="memo.finished" type="checkbox">
     </label>
   </div>
 
-  <p class="memo-text">{{memo.text}}</p>
+  <p *ngIf='isUpdating === false' class="memo-text">{{memo.text}}</p>
+  <p *ngIf='isUpdating === true' class="memo-text">
+    <input [(ngModel)]="memo.text">
+  </p>
 
+  <div class="memo-footer">
+    <button *ngIf="isUpdating === false" (click)="onDeleteClick()">delete</button>
+    <button *ngIf="isUpdating === false" (click)="onUpdateClick()">update</button>
+    <button *ngIf="isUpdating === true" (click)="onSaveClick()">save</button>
+  </div>
 </div>

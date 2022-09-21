@@ -7,13 +7,20 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  memoList: any[] = [
-    {text: 'test memo', date: new Date(), finished: false}
-  ];
+  memoList: any[] = [];
 
   createMemo(input: string) {
-    const memo = {text: input, date: new Date(), finished: false}
+    const currentDate = new Date();
+    const memo = {id: currentDate.getTime(), text: input, date: currentDate, finished: false}
     this.memoList.push(memo);
+  }
+
+  deleteMemo(memoToDelete: any) {
+    this.memoList = this.memoList.filter(memo => memo.id !== memoToDelete.id);
+  }
+
+  debug() {
+    console.log(this.memoList)
   }
 
 }
