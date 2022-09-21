@@ -12,14 +12,8 @@ export class AppComponent {
   ];
 
   createMemo(input: string) {
-    console.log('create memo')
-    console.log(input)
-
-    this.memoList.push(
-      {text: input, date: new Date(), finished: false}
-    )
-
-
-    console.log(this.memoList)
+    const memo = {text: input, date: new Date(), finished: false}
+    this.memoList.push(memo);
   }
+
 }
